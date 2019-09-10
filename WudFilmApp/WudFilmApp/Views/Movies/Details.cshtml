@@ -1,0 +1,65 @@
+﻿@model WudFilmApp.Models.Movie
+
+@{
+    ViewData["Title"] = $"{@Model.Title}";
+}
+<img src="@Model.PosterUrl" alt="No Image"
+     style="width: 100px; height: 150px; "/>
+<h2>@Model.Title</h2>
+
+<div >
+
+   
+    <dl class="dl-horizontal">
+ 
+        <dt>
+            @Html.DisplayNameFor(model => model.Subcommittee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Subcommittee)
+        </dd>
+        <dt>
+            Showtimes
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                <tr>
+                    
+                    <th>
+                        ShowTime
+                    </th>
+                    <th>
+                       Has Showtime Passed
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--Display the list of showtimes here -->
+                @foreach (var item in Model.Showtimes ?? new List<Showtime>())
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ShowDateTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HasShowtimePassed)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" asp-controller="Showtimes">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" asp-controller="Showtimes">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="Showtimes">Delete</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

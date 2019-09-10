@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<h2>Automated Test Runner</h2>
+<p>
+    Welcome to the automated test runner for the WudFilmApp. To begin, please either click <em>RunAllTests</em> or alternatively, select individual tests to run.
+</p>
+
+<div>
+    <h4><em>Status: </em> @ViewData["TestResult"]</h4>
+</div>
+<h3><a asp-action="RunAllTests">Run All Tests</a></h3>
+
+<div>
+    <h3>Movie Tests</h3>
+    <ul>
+        <li><a asp-action="TestAddMovie">Test Add Movie</a></li>
+    </ul>
+</div>

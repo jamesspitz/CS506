@@ -1,0 +1,76 @@
+﻿@page "{id:int}"
+@model Areas.Identity.Pages.WUDFilmAppUsers.DetailsModel
+@using Areas.Identity.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WFUser.NetID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WFUser.NetID)
+        </dd>
+
+        <!-- <snippet> -->
+        @*Precedng markup omitted for brevity.*@
+        <dt>
+            @Html.DisplayNameFor(model => model.WFUser.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WFUser.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WFUser.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WFUser.Status)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.WFUser.Status != ContactStatus.Approved)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+  User, Model.WFUser, ContactOperations.Approve)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.WFUser.NetID" />
+            <input type="hidden" name="status" value="@ContactStatus.Approved" />
+            <button type="submit" class="btn btn-xs btn-success">Approve</button>
+        </form>
+    }
+}
+
+@if (Model.WFUser.Status != ContactStatus.Rejected)
+{
+    @if ((await AuthorizationService.AuthorizeAsync(
+  User, Model.WFUser, ContactOperations.Reject)).Succeeded)
+    {
+        <form style="display:inline;" method="post">
+            <input type="hidden" name="id" value="@Model.WFUser.NetID" />
+            <input type="hidden" name="status" value="@ContactStatus.Rejected" />
+            <button type="submit" class="btn btn-xs btn-success">Reject</button>
+        </form>
+    }
+}
+
+<div>
+    @if ((await AuthorizationService.AuthorizeAsync(
+      User, Model.WFUser,
+      ContactOperations.Update)).Succeeded)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.WFUser.NetID">Edit</a>
+        <text> | </text>
+    }
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,66 @@
+﻿@page
+@model Areas.Identity.Pages.WUDFilmAppUsers.IndexModel
+@using Areas.Identity.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WFUser[0].NetID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WFUser[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WFUser[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WFUser)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NetID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                   User, item,
+                   ContactOperations.Update)).Succeeded)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.NetID">Edit</a>
+                        <text> | </text>
+                    }
+
+                    <a asp-page="./Details" asp-route-id="@item.NetID">Details</a>
+
+                    @if ((await AuthorizationService.AuthorizeAsync(
+                   User, item,
+                   ContactOperations.Delete)).Succeeded)
+                    {
+                        <text> | </text>
+                        <a asp-page="./Delete" asp-route-id="@item.NetID">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

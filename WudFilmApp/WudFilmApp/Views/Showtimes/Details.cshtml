@@ -1,0 +1,150 @@
+﻿@model WudFilmApp.Models.Showtime
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Showtime</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Movie.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShowDateTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HasShowtimePassed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HasShowtimePassed)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Format)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Format)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PointPerson)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PointPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Collaborator)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Collaborator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollaboratorContactInfo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CollaboratorContactInfo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CollaboratorPerson)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CollaboratorPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Distributor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distributor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Projectionist)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Projectionist)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WUDFilm)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WUDFilm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingConfirmed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookingConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FBEventMade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FBEventMade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PublicityFormSent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublicityFormSent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaOrdered)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MediaOrdered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaArrived)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MediaArrived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaReturned)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MediaReturned)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaReturnTrackingNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MediaReturnTrackingNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowingAttendence)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShowingAttendence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,68 @@
+﻿
+/* Display movies as horizontal list
+
+*/
+.movie-list {
+   
+    vertical-align: top;
+    list-style-type: none;
+}
+
+/*
+    1 movie item in the list
+*/
+.movie-item {
+    display: inline-block;
+   
+    vertical-align: bottom;
+}
+/**
+    Background for movie
+*/
+.movie-background {
+    background: InfoBackground;
+    -ms-border-radius: 5pt;
+    border-radius: 5pt;
+    border-color: InfoBackground;
+    margin: 20pt;
+    padding: 10pt;
+}
+
+/*
+    Poster for a movie item
+*/
+.movie-poster {
+    float: top;
+    horiz-align: center;
+    alignment: center;
+    width: 180pt;
+    height: 240pt;
+}
+
+/**
+    Styling for all items not including the movie poster
+*/
+.movie-details {
+    color: CaptionText;
+    text-align: center;
+    font-weight: lighter;
+}
+
+/*
+    Title of a movie item
+    Highlight color: #4286f4 
+*/
+.movie-title {
+    font-size: medium;
+    color: CaptionText;
+    text-align: center;
+}
+
+/*
+    Information about the runtime, rating, etc
+*/
+.showtime-info {
+    text-align: center;
+
+}
+

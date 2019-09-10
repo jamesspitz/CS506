@@ -1,0 +1,122 @@
+﻿@model WudFilmApp.Models.Showtime
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Showtime</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MovieId" class="control-label"></label>
+                <select asp-for="MovieId" class="form-control" asp-items="ViewBag.MovieId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowDateTime" class="control-label"></label>
+                <input asp-for="ShowDateTime" class="form-control"/>
+                <span asp-validation-for="ShowDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Format" class="control-label"></label>
+                <input asp-for="Format" class="form-control" />
+                <span asp-validation-for="Format" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PointPerson" class="control-label"></label>
+                <input asp-for="PointPerson" class="form-control" />
+                <span asp-validation-for="PointPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Collaborator" class="control-label"></label>
+                <input asp-for="Collaborator" class="form-control" />
+                <span asp-validation-for="Collaborator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollaboratorContactInfo" class="control-label"></label>
+                <input asp-for="CollaboratorContactInfo" class="form-control" />
+                <span asp-validation-for="CollaboratorContactInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollaboratorPerson" class="control-label"></label>
+                <input asp-for="CollaboratorPerson" class="form-control" />
+                <span asp-validation-for="CollaboratorPerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Distributor" class="control-label"></label>
+                <input asp-for="Distributor" class="form-control" />
+                <span asp-validation-for="Distributor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Projectionist" class="control-label"></label>
+                <input asp-for="Projectionist" class="form-control" />
+                <span asp-validation-for="Projectionist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WUDFilm" class="control-label"></label>
+                <input asp-for="WUDFilm" class="form-control"/>
+                <span asp-validation-for="WUDFilm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookingConfirmed" class="control-label"></label>
+                <input asp-for="BookingConfirmed" class="form-control"/>
+                <span asp-validation-for="BookingConfirmed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FBEventMade" class="control-label"></label>
+                <input asp-for="FBEventMade" class="form-control"/>
+                <span asp-validation-for="FBEventMade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublicityFormSent" class="control-label"></label>
+                <input asp-for="PublicityFormSent" class="form-control"/>
+                <span asp-validation-for="PublicityFormSent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaOrdered" class="control-label"></label>
+                <input asp-for="MediaOrdered" class="form-control"/>
+                <span asp-validation-for="MediaOrdered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaArrived" class="control-label"></label>
+                <input asp-for="MediaArrived" class="form-control"/>
+                <span asp-validation-for="MediaArrived" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaReturned" class="control-label"></label>
+                <input asp-for="MediaReturned" class="form-control"/>
+                <span asp-validation-for="MediaReturned" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediaReturnTrackingNumber" class="control-label"></label>
+                <input asp-for="MediaReturnTrackingNumber" class="form-control"/>
+                <span asp-validation-for="MediaReturnTrackingNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShowingAttendence" class="control-label"></label>
+                <input asp-for="ShowingAttendence" class="form-control"/>
+                <span asp-validation-for="ShowingAttendence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control"/>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
